@@ -1,3 +1,22 @@
-# https://www.robotstxt.org/robotstxt.html
+# Site is intentionally hidden from search engines.
+# When ready to go public: change to "Allow: /" and remove noindex meta in index.html
 User-agent: *
-Disallow:
+Disallow: /
+
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Yandex
+Disallow: /

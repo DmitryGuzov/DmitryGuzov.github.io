@@ -10,7 +10,7 @@ const Contact = (): JSX.Element => {
     return (
         <Section
             id="contact"
-            title="Any Question? Feel Free to Contact"
+            title="Get in touch"
             background="light"
         >
             <div className="contact-content-wrapper">

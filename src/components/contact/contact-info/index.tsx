@@ -8,16 +8,16 @@ const ContactInfo = (): JSX.Element => {
     return (
         <div className="contact-info-box">
             <h4>
-                I would be happy to answer any questions you may have about
-                freelance writing or content marketing!
+                Questions about a project, collaboration, or freelance work?
+                Reach out anytime.
             </h4>
             <div className="contact-option">
                 <FaPhoneAlt />
-                <span className="text">+91 1234567891</span>
+                <span className="text">+380 XX XXX XX XX</span>
             </div>
             <div className="contact-option">
                 <MdEmail />
-                <span className="text">example@gmail.com</span>
+                <span className="text">your@email.com</span>
             </div>
         </div>
     );

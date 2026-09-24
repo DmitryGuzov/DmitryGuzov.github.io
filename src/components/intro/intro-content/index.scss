@@ -4,165 +4,135 @@
 .intro-content {
     flex-grow: 1;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 48px;
+    width: 100%;
+
     .layout {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 28px;
+
+        @include tablet-screen {
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+        }
+
         .left-col {
             width: 100%;
-            // @include tablet-screen {
-            //     display: flex;
-            //     width: 100%;
-            //     flex-direction: column;
-            //     justify-content: space-between;
-            //     align-items: center;
-            //     padding-top: 0px;
-            // }
+            order: 1;
+
+            @include tablet-screen {
+                width: 48%;
+            }
+
             @include medium-screen {
-                // padding-top: 55px;
-                width: 45%;
+                width: 42%;
             }
-            @include large-screen {
-                padding-top: 0;
-                width: 37%;
-            }
+
             .title {
                 display: flex;
                 flex-direction: column;
                 color: $white;
+
                 .small-text {
-                    @include typography(42px, 400, 48px);
+                    @include typography(28px, 700, 36px);
                     display: flex;
                     align-items: center;
+                    flex-wrap: wrap;
+                    gap: 4px;
+
+                    @include tablet-screen {
+                        @include typography(36px, 700, 44px);
+                    }
+
                     .icon {
-                        margin-left: 10px;
+                        margin-left: 6px;
+                        display: inline-flex;
+                        width: 36px;
+                        height: 36px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
                     }
                 }
+
                 .big-text {
-                    @include typography(28px, 400, 36px);
+                    @include typography(32px, 800, 1.15);
+                    letter-spacing: -0.02em;
+                    margin-top: 8px;
+
                     @include tablet-screen {
-                        @include typography(48px, 400, 56px);
+                        @include typography(44px, 800, 1.15);
                     }
+
                     @include medium-screen {
-                        @include typography(62px, 400, 72px);
+                        @include typography(56px, 800, 1.1);
                     }
                 }
             }
+
             p {
-                color: $white;
-                @include typography(18px, 400, 24px);
-                margin: 25px 0;
+                color: $hint;
+                @include typography(17px, 600, 26px);
+                margin: 20px 0 28px;
+                max-width: 36ch;
             }
         }
+
         .right-col {
-            width: 63%;
+            width: 100%;
+            max-width: 420px;
             display: flex;
             align-items: flex-end;
+            justify-content: center;
             position: relative;
-            // @include large-screen {
-            //     width: 63%;
-            // }
+            order: 2;
+            overflow: visible;
+            padding: 20px 16px 16px;
+
+            @include tablet-screen {
+                width: 52%;
+                max-width: none;
+                justify-content: flex-end;
+                padding: 28px 28px 20px;
+            }
+
+            @include medium-screen {
+                width: 58%;
+                padding: 32px 36px 24px;
+            }
+
             img {
                 width: 100%;
+                max-width: 480px;
                 display: block;
-                margin-bottom: 40px;
-                @include large-screen {
-                    margin-bottom: 50px;
-                    position: relative;
-                    right: -100px;
+                margin-bottom: 0;
+                position: relative;
+                right: 0;
+                z-index: 1;
+            }
+
+            .hero-photo {
+                max-width: 280px;
+                filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.35));
+                border-radius: 8px;
+
+                @include tablet-screen {
+                    max-width: 340px;
+                }
+
+                @include medium-screen {
+                    max-width: 380px;
                 }
             }
-            // .highlights {
-            //     position: absolute;
-            //     border-radius: 6px;
-            //     @include glassmorphism-effect;
-            //     .icon {
-            //         width: 55px;
-            //         height: 55px;
-            //         min-width: 55px;
-            //         display: flex;
-            //         align-items: center;
-            //         justify-content: center;
-            //         border-radius: 50%;
-            //         background-color: $aqua;
-            //         font-size: 24px;
-            //         color: $black-light;
-            //     }
-            //     .text {
-            //         padding: 0 10px;
-            //         @include typography(18px, 400, 24px);
-            //         color: $black-light;
-            //         span {
-            //             @include typography(18px, 400, 24px);
-            //         }
-            //     }
-
-            //     &.horizontal {
-            //         width: 208px;
-            //         height: 95px;
-            //         display: flex;
-            //         align-items: center;
-            //         top: 250px;
-            //         left: 0;
-            //         padding: 20px 10px 20px 20px;
-            //         @include medium-screen {
-            //             top: 250px;
-            //             left: 0;
-            //         }
-            //         @include large-screen {
-            //             top: 270px;
-            //             left: 120px;
-            //         }
-            //     }
-            //     &.verticle {
-            //         width: 135px;
-            //         height: 165px;
-            //         min-height: 165px;
-            //         display: flex;
-            //         flex-direction: column;
-            //         align-items: center;
-            //         top: 50px;
-            //         right: 60px;
-            //         padding: 20px;
-            //         padding-bottom: 10px;
-            //         text-align: center;
-            //         @include medium-screen {
-            //             top: 50px;
-            //             right: 60px;
-            //         }
-            //         @include large-screen {
-            //             top: 85px;
-            //             right: -10px;
-            //         }
-            //         .text {
-            //             padding: 0 10px;
-            //             @include typography(14px, 400, 18px);
-            //             color: $black-light;
-            //             margin-top: 10px;
-            //             span {
-            //                 @include typography(18px, 700, 24px);
-            //                 display: block;
-            //             }
-            //         }
-            //     }
-            // }
         }
-
-        flex-direction: row;
-        align-items: center;
-        @include phone-screen {
-            width: 100%;
-            flex-direction: column;
-        }
-        @include medium-screen {
-            width: 100%;
-            flex-direction: row;
-            align-items: flex-start;
-        }
-        // @include medium-screen {
-        //     width: 100%;
-        //     display: flex;
-        //     flex-direction: row;
-        //     align-items: initial;
-        // }
     }
 }

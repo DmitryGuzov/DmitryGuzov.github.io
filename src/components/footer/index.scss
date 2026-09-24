@@ -4,18 +4,36 @@
 .footer {
     padding-bottom: 0;
 }
+
 .footer-content-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+
     .footer-logo {
-        width: 150px;
-        img {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
             display: block;
-            width: 100%;
+        }
+
+        .logo-wordmark {
+            @include typography(18px, 800, 1.1);
+            color: $white;
+            letter-spacing: -0.02em;
+
+            em {
+                font-style: normal;
+                color: $gold;
+            }
         }
     }
+
     .footer-menu-items {
         margin: 0;
         padding: 0;
@@ -23,52 +41,67 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        margin-top: 30px;
+        justify-content: center;
+        margin-top: 28px;
+        gap: 4px 0;
+
         .footer-menu-item {
-            @include typography(14px, 400, 18px);
+            @include typography(14px, 700, 18px);
+
             @include tablet-screen {
-                @include typography(18px, 400, 22px);
+                @include typography(16px, 700, 22px);
             }
-            color: $white;
-            margin: 0 12.5px;
+
+            color: $hint;
+            margin: 0 12px;
             cursor: pointer;
+
             &:hover {
-                opacity: 0.5;
+                color: $gold;
             }
         }
     }
+
     .social-icons {
         display: flex;
         align-items: center;
-        margin-top: 30px;
+        margin-top: 28px;
+
         .social-icon {
-            width: 45px;
-            height: 45px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: $white;
             font-size: 18px;
-            margin: 0 12.5px;
+            margin: 0 8px;
             cursor: pointer;
+            border: 1px solid $border;
+            @include transition-ease(200ms);
+
             &:hover {
-                opacity: 0.5;
+                opacity: 1;
+                border-color: $gold;
+                color: $gold;
             }
         }
     }
+
     .bottom-bar {
         width: 100%;
-        height: 75px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        height: 72px;
+        border-top: 1px solid $border;
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 75px;
+        margin-top: 56px;
+
         .copyright-text {
-            color: #777777;
-            @include typography(14px, 400, 22px);
+            color: $hint;
+            @include typography(13px, 600, 20px);
         }
     }
 }

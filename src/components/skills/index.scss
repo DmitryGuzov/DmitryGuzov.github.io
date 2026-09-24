@@ -4,94 +4,68 @@
 .skills-content-wrapper {
     display: flex;
     align-items: center;
-    overflow: hidden;
-    // .left-col {
-    //     width: 40%;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: flex-start;
-
-    //     img {
-    //         width: 100%;
-    //         max-width: 453px;
-    //         display: block;
-    //     }
-    // }
-    // .right-col {
-    //     width: 60%;
-    //     color: $white;
-    //     margin-left: 70px;
-    //     h2 {
-    //         margin-bottom: 30px;
-    //     }
-    //     p {
-    //         @include typography(18px, 400, 24px);
-    //         margin-bottom: 15px;
-    //     }
-    // }
-
+    overflow: visible;
     flex-direction: column;
+    width: 100%;
+    gap: 36px;
+
     .left-col {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         order: 2;
-        img {
-            width: 100%;
-            max-width: 60%;
-            display: block;
+    }
+
+    .skills-cloud {
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 12px 14px;
+        padding: 8px;
+
+        @include tablet-screen {
+            max-width: 520px;
+            gap: 14px 16px;
+            justify-content: flex-start;
         }
     }
+
     .right-col {
         width: 100%;
-        margin-bottom: 2rem;
         color: $white;
-        p {
-            @include typography(18px, 400, 24px);
-            margin-bottom: 15px;
+        order: 1;
+
+        h2 {
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
         }
-        
+
+        p {
+            @include typography(17px, 600, 26px);
+            margin-bottom: 20px;
+            color: $hint;
+            max-width: 48ch;
+        }
     }
 
     @include tablet-screen {
         flex-direction: row;
+        gap: 48px;
+        align-items: center;
+
         .left-col {
-            width: 40%;
-            display: flex;
-            align-items: center;
+            width: 46%;
             justify-content: flex-start;
-            
-    
-            img {
-                width: 100%;
-                max-width: 453px;
-                display: block;
-            }
+            order: 1;
         }
+
         .right-col {
             order: 2;
-            width: 60%;
-            color: $white;
-            margin-left: 70px;
-           
-            h2 {
-                margin-bottom: 30px;
-            }
-            p {
-                @include typography(18px, 400, 24px);
-                margin-bottom: 15px;
-            }
+            width: 54%;
         }
-        // flex-direction: column;
-        // .left-col {
-        //     width: 100%;
-        //     justify-content: center;
-        //     order: 2;
-        // }
-        // .right-col {
-        //     width: 100%;
-        //     margin-bottom: 2rem;
-        // }
     }
 }

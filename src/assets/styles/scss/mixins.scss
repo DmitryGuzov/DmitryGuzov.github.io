@@ -24,22 +24,26 @@
         @content;
     }
 }
+
 @mixin small-screen {
     @media only screen and (min-width: 560px) {
         @content;
     }
 }
+
+// Mobile-only (was incorrectly min-width: 300px)
 @mixin phone-screen {
-    @media only screen and (min-width: 300px) {
+    @media only screen and (max-width: 767px) {
         @content;
     }
 }
 
 @mixin glassmorphism-effect {
-    background: rgba(255, 255, 255, 0.35);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(7.5px);
-    -webkit-backdrop-filter: blur(7.5px);
+    background: rgba(45, 58, 63, 0.88);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid $border;
 }
 
 @mixin transition($time: 200ms) {

@@ -1,33 +1,37 @@
 import React from "react";
 import "./index.scss";
 
-import Draggable from "react-draggable";
-
-import { randomIntFromInterval } from "../../../helpers";
-
 interface SkillProps {
-    img?: string;
-    width?: number | string;
-    height?: number | string;
-    position?: number;
+    label: string;
+    icon?: React.ReactNode;
+    image?: string;
+    size?: "sm" | "md" | "lg";
+    accent?: string;
 }
 
-const Skill = ({ img, width, height, position }: SkillProps): JSX.Element => {
-    const heightAndWeight = randomIntFromInterval(60, 90);
+const Skill = ({
+    label,
+    icon,
+    image,
+    size = "md",
+    accent,
+}: SkillProps): JSX.Element => {
     return (
-        <Draggable>
-            <div
-                className={`skill position${position}`}
-                style={{ backgroundImage: `url(${img})` }}
-            >
-                {/* <img
-                    src={img}
-                    width={heightAndWeight}
-                    height={heightAndWeight}
-                    alt={img}
-                /> */}
-            </div>
-        </Draggable>
+        <div
+            className={`skill skill--${size}`}
+            title={label}
+            style={accent ? ({ ["--skill-accent" as string]: accent } as React.CSSProperties) : undefined}
+        >
+            {image ? (
+                <img
+                    src={image}
+                    alt={label}
+                />
+            ) : (
+                <span className="skill-icon">{icon}</span>
+            )}
+            <span className="skill-label">{label}</span>
+        </div>
     );
 };
 

@@ -2,7 +2,7 @@
 @import "../../../assets/styles/scss/mixins.scss";
 
 .filter-menu-items {
-    margin: 0;
+    margin: 30px 0;
     padding: 0;
     display: flex;
     align-items: center;
@@ -10,20 +10,29 @@
     width: 100%;
     list-style-type: none;
     flex-wrap: wrap;
-    margin: 30px 0;
+    gap: 6px;
+
     .filter-menu-item {
-        color: $white;
-        @include typography(22px, 400, 28px);
-        padding: 10px 20px;
-        margin: 0 2.5px;
-        border-radius: 6px;
-        box-shadow: inset 0 0 0 0 $white;
-        transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        color: $hint;
+        @include typography(15px, 700, 22px);
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1px solid $border;
+        background: transparent;
+        @include transition-ease(200ms);
         cursor: pointer;
+
+        @include tablet-screen {
+            @include typography(16px, 700, 22px);
+            padding: 10px 18px;
+        }
+
         &:hover,
         &.active {
-            box-shadow: inset 200px 0 0 0 $white;
-            color: $black;
+            background: $gold;
+            border-color: $gold;
+            color: $on-gold;
+            box-shadow: none;
         }
     }
 }

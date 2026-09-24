@@ -2,56 +2,60 @@ import React from "react";
 import "./index.scss";
 
 import { AiOutlineCloudDownload } from "react-icons/ai";
+import {
+    SiAmazonaws,
+    SiAmazons3,
+    SiElectron,
+    SiFlutter,
+    SiMongodb,
+    SiNextdotjs,
+    SiNodedotjs,
+    SiPostgresql,
+    SiReact,
+    SiRedux,
+    SiTypescript,
+} from "react-icons/si";
 
 import Section from "../section";
-import TechIcons from "../../assets/images/tech-icons.png";
 import CallToAction from "../call-to-action";
 import Skill from "./skill";
-import nodejs from "../../assets/images/skills/nodejs.png";
-import flutter from "../../assets/images/skills/flutter.png";
-import typescript from "../../assets/images/skills/typescript.png";
-import html5 from "../../assets/images/skills/html5.png";
-import { randomIntFromInterval } from "../../helpers";
-import CV from "../../assets/files/CV.pdf";
+import CV from "../../assets/files/CV_2026-04-10.pdf";
 import Fade from "react-reveal";
 
 type WindowWithDataLayer = Window & {
-    dataLayer: Record<string, any>[];
-  };
-  
-  declare const window: WindowWithDataLayer;
-  
+    dataLayer?: Record<string, unknown>[];
+};
+
+declare const window: WindowWithDataLayer;
+
+const skills = [
+    { label: "React", icon: <SiReact />, size: "lg" as const, accent: "#61DAFB" },
+    { label: "Flutter", icon: <SiFlutter />, size: "lg" as const, accent: "#47C5FB" },
+    { label: "Next.js", icon: <SiNextdotjs />, size: "md" as const, accent: "#FFFFFF" },
+    { label: "Node.js", icon: <SiNodedotjs />, size: "md" as const, accent: "#5FA04E" },
+    { label: "TypeScript", icon: <SiTypescript />, size: "md" as const, accent: "#3178C6" },
+    { label: "Redux", icon: <SiRedux />, size: "md" as const, accent: "#764ABC" },
+    { label: "Electron", icon: <SiElectron />, size: "md" as const, accent: "#47848F" },
+    { label: "MongoDB", icon: <SiMongodb />, size: "sm" as const, accent: "#47A248" },
+    { label: "PostgreSQL", icon: <SiPostgresql />, size: "sm" as const, accent: "#4169E1" },
+    { label: "AWS", icon: <SiAmazonaws />, size: "sm" as const, accent: "#FF9900" },
+    { label: "S3", icon: <SiAmazons3 />, size: "sm" as const, accent: "#569A31" },
+    { label: "ECS", icon: <SiAmazonaws />, size: "sm" as const, accent: "#E8A817" },
+];
+
 const Skills = (): JSX.Element => {
     const downloadCV = () => {
-        // // text content
-        // const texts = ["line 1", "line 2", "line 3"];
-        // // file object
-        // const file = new Blob(texts, { type: "text/plain" });
-        // // anchor link
-        // const element = document.createElement("a");
-        // element.href = URL.createObjectURL(file);
-        // element.download = "100ideas-" + Date.now() + ".txt";
-        // // simulate link click
-        // document.body.appendChild(element); // Required for this to work in FireFox
-        // element.click();
-        // Create blob link to download
-
         const link = document.createElement("a");
         link.href = CV;
-        link.setAttribute("download", `DH-CV.pdf`);
-
-        // Append to html link element page
+        link.setAttribute("download", `CV_2026-04-10.pdf`);
         document.body.appendChild(link);
-
-        // Start download
         link.click();
         link.remove();
-        window.dataLayer.push({
+        window.dataLayer?.push({
             event: "download-cv",
         });
-        // Clean up and remove the link
-        // link.parentNode.removeChild(link);
     };
+
     return (
         <Section
             background="dark"
@@ -60,54 +64,33 @@ const Skills = (): JSX.Element => {
             <div className="skills-content-wrapper">
                 <Fade
                     left
-                    delay={1000}
+                    delay={400}
                 >
                     <div className="left-col">
-                        <img
-                            src={TechIcons}
-                            alt="JS,React,HTMl,CSS"
-                        />
-                        {/* <Skill
-                            img={nodejs}
-                            // width={randomIntFromInterval(60,100)}
-                            // height={randomIntFromInterval(60,100)}
-                            position={1}
-                        />
-                        <Skill
-                            img={flutter}
-                            // width={60}
-                            // height={randomIntFromInterval(60,100)}
-                            position={2}
-                        />
-                        <Skill
-                            img={typescript}
-                            // width={75}
-                            // height={randomIntFromInterval(60,100)}
-                            position={3}
-                        />
-                        <Skill
-                            img={html5}
-                            // width={80}
-                            // height={randomIntFromInterval(60,100)}
-                            position={4}
-                        /> */}
+                        <div className="skills-cloud">
+                            {skills.map((skill) => (
+                                <Skill
+                                    key={skill.label}
+                                    label={skill.label}
+                                    icon={skill.icon}
+                                    size={skill.size}
+                                    accent={skill.accent}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </Fade>
                 <Fade
                     right
-                    delay={1000}
+                    delay={400}
                 >
                     <div className="right-col">
                         <h2>Skills</h2>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap
-                            into electronic typesetting, remaining essentially
-                            unchanged. It was popularised in the 1960s with the
+                            Full-stack across React, Next.js, TypeScript, Node,
+                            and Flutter — plus Electron for desktop apps like
+                            Capsa, Redux, MongoDB, and AWS (S3, ECS). Focused on
+                            clear UX and reliable delivery.
                         </p>
                         <CallToAction
                             text="Download CV"

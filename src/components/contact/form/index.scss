@@ -2,76 +2,81 @@
 @import "../../../assets/styles/scss/mixins.scss";
 
 .query-form {
-    // width: calc(100% - 375px);
     width: 100%;
-    // margin-left: 20px;
+    flex: 1;
+
     form {
         display: flex;
         flex-flow: row wrap;
         margin-top: -10px;
     }
+
     .input-field {
         width: 100%;
-
         margin-bottom: 10px;
 
         &.full-width {
             width: 100%;
         }
-        input {
-            width: 100%;
-            height: 57px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            background-color: transparent;
-            outline: 0;
-            padding: 10px 20px;
-            color: $white;
-            @include typography(18px, 400, 24px);
-            &:focus {
-                border-color: $white;
-            }
-        }
+
+        input,
         .textarea {
             width: 100%;
-            height: 120px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            background-color: transparent;
+            border: 1px solid $border;
+            border-radius: 10px;
+            background-color: $black-lighter;
             outline: 0;
-            padding: 10px 20px;
+            padding: 10px 18px;
             color: $white;
-            resize: none;
-            @include typography(18px, 400, 24px);
+            @include typography(16px, 600, 24px);
+
+            &::placeholder {
+                color: $hint;
+            }
+
             &:focus {
-                border-color: $white;
+                border-color: $gold;
             }
         }
-        .errors {
-            color: $white;
-            @include typography(12px, 400, 24px);
+
+        input {
+            height: 52px;
         }
+
+        .textarea {
+            height: 120px;
+            resize: none;
+            padding-top: 14px;
+        }
+
+        .errors {
+            color: $red;
+            @include typography(12px, 600, 20px);
+        }
+
         @include small-screen {
-            width: calc(50% - 20px);
-            margin: 10px;
+            width: calc(50% - 16px);
+            margin: 8px;
         }
     }
+
     button {
         outline: 0;
         border: 0;
-        width: 90px;
+        min-width: 110px;
         height: 47px;
-        background: $white;
-        border-radius: 6px;
-        @include typography(18px, 400, 24px);
-        margin-left: 10px;
+        padding: 0 18px;
+        background: $gold;
+        color: $on-gold;
+        border-radius: 10px;
+        @include typography(16px, 800, 24px);
+        margin-left: 8px;
         margin-top: 10px;
         cursor: pointer;
-    }
-    @include medium-screen {
-        margin-left: 0px;
-    }
-    @include large-screen {
-        margin-left: 20px;
+        @include transition-ease(200ms);
+
+        &:hover {
+            background: $gold-soft;
+        }
     }
 }

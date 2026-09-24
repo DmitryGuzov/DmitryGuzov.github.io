@@ -8,7 +8,7 @@ interface SocialIconProps {
 
 const SocialIcon = ({ icon, color, link }: SocialIconProps) => {
     const handleClick = () => {
-        if (link) {
+        if (link && link !== "#") {
             window.open(link, "_blank");
         }
     };

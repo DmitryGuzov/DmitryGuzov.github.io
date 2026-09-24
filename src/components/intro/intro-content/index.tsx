@@ -1,12 +1,10 @@
 import React from "react";
 import "./index.scss";
 
-import { BsAwardFill } from "react-icons/bs";
-import { FaUser } from "react-icons/fa";
+import { FaCode, FaDesktop, FaMobileAlt } from "react-icons/fa";
 
-import girl from "../../../assets/images/girl.png";
-import man from "../../../assets/images/man.png";
 import hand from "../../../assets/images/hand.png";
+import heroPhoto from "../../../assets/images/hero-dock.png";
 
 import CallToAction from "../../call-to-action";
 import Fade from "react-reveal";
@@ -19,7 +17,7 @@ const IntroContent = () => {
             <div className="layout">
                 <Fade
                     left
-                    delay={2000}
+                    delay={400}
                 >
                     <div className="left-col">
                         <div className="title">
@@ -28,7 +26,7 @@ const IntroContent = () => {
                                 <span className="icon">
                                     <img
                                         src={hand}
-                                        alt="hand"
+                                        alt=""
                                     />
                                 </span>
                                 <span className="text">, I Am</span>
@@ -38,9 +36,9 @@ const IntroContent = () => {
                             </span>
                         </div>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500
+                            I build web and mobile products end to end — from
+                            UI to APIs. Personal apps under HDA (Keepbay,
+                            Capsa) and client work when it fits.
                         </p>
                         <CallToAction
                             text="Contact me"
@@ -50,57 +48,47 @@ const IntroContent = () => {
                 </Fade>
                 <Fade
                     right
-                    delay={2000}
+                    delay={400}
                 >
                     <div className="right-col">
                         <img
-                            src={man}
-                            alt="JS Dev Hindi"
+                            src={heroPhoto}
+                            alt="Dmitry Guzov"
+                            className="hero-photo"
                         />
-
-                        {/* <div className="highlights horizontal">
-                            <div className="icon">
-                                <BsAwardFill />
-                            </div>
-                            <div className="text">Best Design Award</div>
-                        </div>
-                         <div className="highlights verticle">
-                            <div className="icon">
-                                <FaUser />
-                            </div>
-                            <div className="text">
-                                <span>4k+</span>
-                                Happy Customers
-                            </div>
-                        </div>
-                         */}
+                        {/* Left mid — web */}
                         <Highlight
                             type="horizontal"
-                            icon={<BsAwardFill />}
+                            icon={<FaCode />}
                             positionClass={"position-1"}
                             child={
-                                <div className="text">Best Design Award</div>
-                            }
-                        />
-                        <Highlight
-                            type="vertical"
-                            icon={<FaUser />}
-                            positionClass={"position-2"}
-                            child={
                                 <div className="text-small">
-                                    <span>4k+</span>
-                                    Best Design Award
+                                    <span>Full-Stack</span>
+                                    Web
                                 </div>
                             }
                         />
+                        {/* Top right — mobile */}
                         <Highlight
-                            type="vertical"
-                            icon={<FaUser />}
+                            type="horizontal"
+                            icon={<FaMobileAlt />}
+                            positionClass={"position-2"}
+                            child={
+                                <div className="text-small">
+                                    <span>Mobile</span>
+                                    Flutter
+                                </div>
+                            }
+                        />
+                        {/* Bottom right — desktop */}
+                        <Highlight
+                            type="horizontal"
+                            icon={<FaDesktop />}
                             positionClass={"position-3"}
                             child={
                                 <div className="text-small">
-                                    <span>4k+</span>
-                                    Best Design Award
+                                    <span>Desktop</span>
+                                    Electron
                                 </div>
                             }
                         />

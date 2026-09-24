@@ -1,15 +1,10 @@
 import React from "react";
 import "./index.scss";
 
-import {
-    FaGithub,
-    FaLinkedinIn,
-    FaFacebook,
-    FaInstagram,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 import Section from "../section";
-import logo from "../../assets/images/logo.png";
+import logoMark from "../../assets/images/logo-dg.svg";
 import SocialIcon from "../social-icon";
 import { scrollToSection } from "../../helpers";
 import Fade from "react-reveal";
@@ -27,9 +22,13 @@ const Footer = (): JSX.Element => {
                 <div className="footer-content-wrapper">
                     <div className="footer-logo">
                         <img
-                            src={logo}
-                            alt="Dmitry Guzov dev"
+                            src={logoMark}
+                            alt="Dmitry Guzov"
+                            className="logo-mark"
                         />
+                        <span className="logo-wordmark">
+                            Dmitry <em>Guzov</em>
+                        </span>
                     </div>
                     <ul className="footer-menu-items">
                         <li
@@ -46,39 +45,27 @@ const Footer = (): JSX.Element => {
                         </li>
                         <li
                             className="footer-menu-item"
-                            onClick={() => scrollToSection("blogs")}
-                        >
-                            Blog & Articles
-                        </li>
-                        <li
-                            className="footer-menu-item"
                             onClick={() => scrollToSection("contact")}
                         >
-                            Contact me
+                            Contact
                         </li>
                     </ul>
                     <div className="social-icons">
                         <SocialIcon
-                            color="#FF0000"
-                            icon={<FaFacebook />}
-                            link="https://www.youtube.com"
-                        />
-                        <SocialIcon
-                            color="#0D2636"
+                            color="#2d3a3f"
                             icon={<FaGithub />}
+                            link="https://github.com/DmitryGuzov"
                         />
                         <SocialIcon
-                            color="#0A66C2"
+                            color="#2d3a3f"
                             icon={<FaLinkedinIn />}
-                        />
-                        <SocialIcon
-                            color="#E84C88"
-                            icon={<FaInstagram />}
+                            link="#"
                         />
                     </div>
                     <div className="bottom-bar">
                         <div className="copyright-text">
-                            Copyright 2023 Dmitry Guzov | All Rights Reserved
+                            © {new Date().getFullYear()} Dmitry Guzov · All
+                            rights reserved
                         </div>
                     </div>
                 </div>

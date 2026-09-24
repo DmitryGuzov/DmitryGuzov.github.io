@@ -9,7 +9,7 @@ interface FiltersProps {
 }
 
 const Filters = ({ filterProjects }: FiltersProps): JSX.Element => {
-    const [active, setActive] = useState("");
+    const [active, setActive] = useState("all");
 
     const clickHandler = (id: string) => () => {
         if (active !== id) {

@@ -34,7 +34,7 @@ const Portfolio = (): JSX.Element => {
     return (
         <Section
             id="portfolio"
-            title="Check my Protfolio"
+            title="Selected work"
             background="light"
         >
             <Fade

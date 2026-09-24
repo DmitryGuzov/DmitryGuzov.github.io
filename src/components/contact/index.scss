@@ -1,0 +1,15 @@
+// @import "../../../assets/styles/scss/variable.scss";
+@import "../../assets/styles/scss/mixins.scss";
+
+.contact-content-wrapper {
+    display: flex;
+    width: 100%;
+    margin-top: 75px;
+    flex-direction: row;
+    @include phone-screen {
+        flex-direction: column;
+    }
+    @include medium-screen {
+        flex-direction: row;
+    }
+}
